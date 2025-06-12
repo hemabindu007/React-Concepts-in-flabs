@@ -1,4 +1,5 @@
 import  { useState, useEffect } from 'react';
+import DisplayTheme, { ThemeContext } from './UseContext';
 
 function Timer() {
   const [seconds, setSeconds] = useState(0);
@@ -8,7 +9,14 @@ function Timer() {
     return () => clearInterval(interval);
   }, []);
 
-  return <p>Timer: {seconds} seconds</p>;
+  return (
+    <div style={{padding:"20%"}}>
+      <p>Timer: {seconds} seconds</p>
+       <ThemeContext.Provider value="white">
+      <DisplayTheme />
+    </ThemeContext.Provider>
+    </div>
+  );
 }
 
 export default Timer;

@@ -1,4 +1,5 @@
 import  { useEffect, useRef } from 'react';
+import ExpensiveCounter from './UseMemo';
 
 function InputFocus() {
   const inputRef = useRef<HTMLInputElement>(null); 
@@ -29,9 +30,12 @@ if (inputRef.current) {
   },[])
 
   return (
-    <div>
+    <div style={{padding:"15%"}}>
       <input ref={inputRef} type="text" />&nbsp;
       <button onClick={handleClick}>Focus the input</button>
+      <div>
+        <ExpensiveCounter></ExpensiveCounter>
+      </div>
     </div>
   );
 }

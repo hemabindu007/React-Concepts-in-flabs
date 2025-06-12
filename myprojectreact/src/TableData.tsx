@@ -3,7 +3,6 @@
 import DataTable from 'react-data-table-component';
 import withLoading from './Loading';
 
-
 const columns = [
   {
     name: 'Name',
@@ -43,12 +42,14 @@ type TableProps = {
 
 function RawUserTable({ columns, data }: TableProps) {
   return (
-    <DataTable
+  <div style={{paddingTop:'30px' ,marginRight:'20px'}}>
+      <DataTable
       columns={columns}
       data={data}
       pagination
       selectableRows
     />
+  </div>
   );
 }
 
@@ -57,7 +58,7 @@ const UserTableWithLoading = withLoading(RawUserTable);
 
 function TableData() {
   return (
-    <div>
+    <div className='draw-border'>
       <h2>User Table</h2>
 
       {/* 👇 Toggle `isLoading` as needed */}
